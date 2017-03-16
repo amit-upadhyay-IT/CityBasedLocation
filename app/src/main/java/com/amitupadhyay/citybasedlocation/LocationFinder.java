@@ -12,17 +12,21 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import static android.content.Context.CONNECTIVITY_SERVICE;
 import static android.content.Context.LOCATION_SERVICE;
 
 /**
@@ -44,8 +48,22 @@ public class LocationFinder implements LocationListener {
     private LocationManager locationManager;
     private ProgressDialog progressDialog;
 
+    private boolean checkNetworkConnectivity()
+    {
+        ConnectivityManager manager = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+        return (networkInfo!=null && networkInfo.isConnected());
+    }
+
 
     void getCityByLocation() {
+
+        if (!checkNetworkConnectivity())
+        {
+            Toast.makeText(context, "No internet found", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
 
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
