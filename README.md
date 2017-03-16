@@ -16,4 +16,4 @@ eg:
 Make your Activity Implement OnLocationFoundListener and override required method to update the View in your Activity.
 
 
-#-Amit Upadhyay (http://minimumstack.com/)
+# -Amit Upadhyay (http://minimumstack.com/)
