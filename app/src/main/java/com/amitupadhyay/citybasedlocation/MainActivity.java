@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     {
         TextView tv = (TextView) findViewById(R.id.current_city);
 
-        tv.setText(cityName+",- "+stateName+",- "+countryName);
+        tv.setText("City : "+cityName+", "+"\nState : "+stateName+", "+"\nCountry : "+countryName);
     }
 
 
