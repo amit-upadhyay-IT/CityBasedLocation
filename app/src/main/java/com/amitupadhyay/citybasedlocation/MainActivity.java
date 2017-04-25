@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements LocationFinder.OnLocationFoundListener {
+public class MainActivity extends AppCompatActivity implements LocationFinder.OnLocationNotifiedListener {
 
     Button getCurrentLocation;
     TextView locationTextview;
@@ -35,5 +35,10 @@ public class MainActivity extends AppCompatActivity implements LocationFinder.On
     @Override
     public void setOnLocationFoundListener(String cityName, String stateName, String countryName) {
         locationTextview.setText("City : "+cityName+", "+"\nState : "+stateName+", "+"\nCountry : "+countryName);
+    }
+
+    @Override
+    public void setOnLocationNotFoundListener() {
+        locationTextview.setText("Could not found your location, your connection is not good :(");
     }
 }

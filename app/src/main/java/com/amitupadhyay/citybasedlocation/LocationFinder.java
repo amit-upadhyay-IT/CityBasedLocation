@@ -36,11 +36,11 @@ import static android.content.Context.LOCATION_SERVICE;
 public class LocationFinder implements LocationListener {
 
     private Context context;
-    private OnLocationFoundListener onLocationFoundListener;
+    private OnLocationNotifiedListener onLocationNotifiedListener;
 
     public LocationFinder(Context context) {
         this.context = context;
-        onLocationFoundListener = (OnLocationFoundListener) context;
+        onLocationNotifiedListener = (OnLocationNotifiedListener) context;
     }
 
     private static final int MY_PERMISSIONS_ACCESS_FINE_LOCATION = 1;
@@ -147,12 +147,20 @@ public class LocationFinder implements LocationListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String cityName = addresses.get(0).getAddressLine(0);
-        String stateName = addresses.get(0).getAddressLine(1);
-        String countryName = addresses.get(0).getAddressLine(2);
 
-        progressDialog.dismiss();
-        onLocationFoundListener.setOnLocationFoundListener(cityName, stateName, countryName);
+        if (addresses != null)
+        {
+            String cityName = addresses.get(0).getAddressLine(0);
+            String stateName = addresses.get(0).getAddressLine(1);
+            String countryName = addresses.get(0).getAddressLine(2);
+
+            progressDialog.dismiss();
+            onLocationNotifiedListener.setOnLocationFoundListener(cityName, stateName, countryName);
+        }
+        else
+        {
+            onLocationNotifiedListener.setOnLocationNotFoundListener();
+        }
 
     }
 
@@ -174,8 +182,9 @@ public class LocationFinder implements LocationListener {
         alertDialog.show();
     }
 
-    public interface OnLocationFoundListener
+    public interface OnLocationNotifiedListener
     {
         void setOnLocationFoundListener(String cityName, String stateName, String countryName);
+        void setOnLocationNotFoundListener();
     }
 }
