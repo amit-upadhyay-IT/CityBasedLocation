@@ -39,6 +39,6 @@ public class MainActivity extends AppCompatActivity implements LocationFinder.On
 
     @Override
     public void setOnLocationNotFoundListener() {
-        locationTextview.setText("Could not found your location, your connection is not good :(");
+        locationTextview.setText("Could not found your location, perhaps your connection is not good :(");
     }
 }
