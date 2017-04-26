@@ -56,7 +56,7 @@ public class LocationFinder implements LocationListener {
     }
 
 
-    void getCityByLocation() {
+    public void getCityByLocation() {
 
         if (!checkNetworkConnectivity())
         {
