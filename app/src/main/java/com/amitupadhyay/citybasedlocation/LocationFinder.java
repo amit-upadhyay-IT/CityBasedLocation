@@ -159,6 +159,7 @@ public class LocationFinder implements LocationListener {
         }
         else
         {
+            progressDialog.dismiss();
             onLocationNotifiedListener.setOnLocationNotFoundListener();
         }
 
