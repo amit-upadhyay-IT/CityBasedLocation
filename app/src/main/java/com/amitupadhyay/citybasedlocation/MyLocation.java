@@ -70,8 +70,8 @@ public class MyLocation {
                             new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                             MY_PERMISSIONS_ACCESS_FINE_LOCATION);
 
-                    ActivityCompat.requestPermissions((Activity) context, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
-                            MY_PERMISSION_ACCESS_COURSE_LOCATION);
+                    /*ActivityCompat.requestPermissions((Activity) context, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
+                            MY_PERMISSION_ACCESS_COURSE_LOCATION);*/
                 }
             }
             else
@@ -91,8 +91,8 @@ public class MyLocation {
                             new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                             MY_PERMISSIONS_ACCESS_FINE_LOCATION);
 
-                    ActivityCompat.requestPermissions((Activity) context, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
-                            MY_PERMISSION_ACCESS_COURSE_LOCATION);
+                    /*ActivityCompat.requestPermissions((Activity) context, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
+                            MY_PERMISSION_ACCESS_COURSE_LOCATION);*/
                 }
             }
             else
