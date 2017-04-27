@@ -37,16 +37,6 @@ public class MainActivity extends AppCompatActivity implements LocationFinder.On
         });
 
         getLocationTwoBtn.setOnClickListener(this);
-
-        MyLocation.LocationResult locationResult = new MyLocation.LocationResult(){
-            @Override
-            public void gotLocation(Location location){
-                //Got the location!
-            }
-        };
-        MyLocation myLocation = new MyLocation();
-        myLocation.getLocation(this, locationResult);
-
     }
 
     @Override
