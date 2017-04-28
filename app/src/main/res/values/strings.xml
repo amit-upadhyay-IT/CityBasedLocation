@@ -17,4 +17,8 @@
     <string name="location_settings_message">Location is not enabled. Do you wish to go to the settings menu?</string>
     <string name="location_settings_button">Settings</string>
     <string name="action_weather_map">Weather Map</string>
+    <string name="title_activity_eample_actiivty">EampleActiivty</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

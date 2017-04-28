@@ -42,4 +42,23 @@
         android:layout_height="wrap_content"
         android:id="@+id/getLocationTwo"
         android:text="Get Location"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginBottom="30dp"
+        android:background="@android:color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/showLocationThree"
+        android:text="Third TV"
+        android:textSize="20sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/getLocationThree"
+        android:text="Get Location"/>
 </LinearLayout>

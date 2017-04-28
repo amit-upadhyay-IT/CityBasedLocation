@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 
 import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * Created by aupadhyay on 4/27/17.
@@ -59,7 +58,7 @@ public class MyLocation {
 
         if (gps_enabled)
         {
-            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.checkSelfPermission((Activity)context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission((Activity)context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
                 if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) context,
                         Manifest.permission.ACCESS_FINE_LOCATION)) {
@@ -77,7 +76,7 @@ public class MyLocation {
 
         if (network_enabled)
         {
-            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.checkSelfPermission((Activity)context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission((Activity)context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
                 if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) context,
                         Manifest.permission.ACCESS_FINE_LOCATION)) {
@@ -93,14 +92,14 @@ public class MyLocation {
                 lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListenerNetwork);
         }
 
-        timer1 = new Timer();
-        timer1.schedule(new GetLastLocation(), 20000);
+        /*timer1 = new Timer();
+        timer1.schedule(new GetLastLocation(), 20000);*/
         return true;
     }
 
     LocationListener locationListenerGps = new LocationListener() {
         public void onLocationChanged(Location location) {
-            timer1.cancel();
+            //timer1.cancel();
             locationResult.gotLocation(location);
             lm.removeUpdates(this);
             lm.removeUpdates(locationListenerNetwork);
@@ -134,7 +133,7 @@ public class MyLocation {
         }
     };
 
-    class GetLastLocation extends TimerTask {
+   /* class GetLastLocation extends TimerTask {
         @Override
         public void run() {
             lm.removeUpdates(locationListenerGps);
@@ -199,7 +198,7 @@ public class MyLocation {
             }
             locationResult.gotLocation(null);
         }
-    }
+    }*/
 
     public static abstract class LocationResult{
         public abstract void gotLocation(Location location);
